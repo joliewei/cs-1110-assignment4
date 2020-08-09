@@ -1,4 +1,4 @@
-# cs-1110-assignment4
+# cs-1110-assignments
 Assignment 4 Description: http://www.cs.cornell.edu/courses/cs1110/2019sp/assignments/a4/ 
     --Used object oriented programming to draw different graphics
 Assignment 6 Description: http://www.cs.cornell.edu/courses/cs1110/2019sp/assignments/a6/ 
