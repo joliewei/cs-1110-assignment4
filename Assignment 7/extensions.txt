@@ -1,0 +1,58 @@
+Jacob and Jolie extensions
+
+-Score counter: Counts how many aliens the player has killed. It carries over to the next wave if the user makes it to the next wave
+
+How we did it: We added an attribute in wave called _count. Wrote a method in wave called 
+score_count That loops throught the aliens increments everytime an alien is equal to none. Then we called the function score_count in the update method of wave. We printed the score on the screen with a Glabel that is in an atribute in Invaders(app) called _score_label
+	
+-Lives counter: counts how many lives the player has left. If the player makes it to the next wave then their lives are restored to 3
+	
+How we did it: added a getter in wave called get_lives. Then we use that in Invaders to be able to  print the number of lives in a GLabel
+
+-Defense Barrier: The barrier is in the middle and the ship can hide behind it in order to not get shot by the alien bolts. The barrier can absorb 10 hits. If the player makes it to the next wave, the barrier comes back at full health of 10. The ship cannot shoot through the barrier.
+
+How we did it: Made a new class in models called defense barrier. Initialzed it, drew it in the draw method of wave. The draw method in app draws the wave. The defense barrier has an attribute health that is intialized at 10. The defense barrier class has a method that checks to see if it was hit my an alien bolt and if so it subtracts the barrier health by 1.
+
+-Barrier health display: This shows how many more hits the barrier can sustain before it disappears. 
+
+How we did it: Used a getter in wave called get_defense_barrier_health. Used that getter in app to be able to print the health display in a GLabel.
+
+-Speed of aliens increases each wave: There are three waves, each wave the speed of the aliens increases
+
+How we did it: Added new methods called wave_1 and wave_2 and wave_3 in app. This allows for the game to do something different when making a wave depending on what wave the player is on. If its the first wave then speed is normal. If its the second wave then the speed is speed up via a setter in Wave called set_speed. Invaders also has an attribute _wave_number that gets incremented when the first and second wave finish. This is used to know what wave the player is on.
+
+-There is also 'p' to pause at any point when you are playing.
+
+-Aliens animate back and forth (45 degrees to -45 degrees) every time they move right or left. 
+
+How we did it: created filmstrip, made class alien a subclass of GSprite, added 'alien.frame = (alien.frame+1) % 2' every time alien wave moved. 
+
+-Aliens are now Boba Bois and ship is now an emoticon. 
+
+How we did it: Changed image files of alien and ship. 
+TaroBoba Image source: 
+https://www.blanktag.co/products/the-taro-tea-with-boba-sticker
+MilkBoba Image source: 
+https://www.blanktag.co/products/the-milk-tea-with-boba-sticker
+GreenBoba Image source: 
+https://www.blanktag.co/products/the-matcha-green-tea-with-boba-sticker
+Ship Image source: 
+https://dumielauxepices.net/sites/default/files/emoji-face-clipart-winkey-596246-9331868.png
+
+-Ship shooting bolts makes pew sound, pew sound varies depending on direction of wave
+(Wave moving right = pew1.wav, Wave moving left = pew2.wav). 
+
+How we did it: Created pew sound object after each ship bolt was created. Wrote helper method 'sound_ship' to set sounds depending on alien direction.
+
+-Aliens make pop sound when they get shot, pop sound varies depending on alien row 
+(First row = pop2.wav, second two rows = pop1.wav, third two rows = pop2.wav, etc). 
+
+How we did it: Created pop sound object after each alien was set to None. Wrote helper method 'sound_alien' to set sounds depending on alien row. 
+
+-Press '0' to mute pew/pop sounds, press '1' to unmute pew/pop sounds (doesn't mute background music, sorry lol). 
+
+How we did it: Wrote helper method 'stop_sound' to set instance attribute to True or False depending on if 0 or 1 was being pressed. Used helper method before creating sound objects. 
+
+-Background Music: Recorder music played by Jolie's brother. We have permission to use.
+
+How we did it: Created sound object in wave initializer so background music only gets called once and doesn't get updated constantly. Looped sound so it would play throughout the game!!!!! Also set it's volume lower than pew and pop sounds. 
